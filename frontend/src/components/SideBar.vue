@@ -1,6 +1,13 @@
 <template>
     <div>
-        asdf
+        <ul>
+            <li>
+                <router-link :to="{name: 'home'}">Home</router-link>
+            </li>
+            <li>
+                <router-link :to="{name: 'ficha'}">Ficha</router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -10,6 +17,12 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style>
+ul {
+    padding: 0;
+}
 
+li {
+    list-style-type: none;
+}
 </style>

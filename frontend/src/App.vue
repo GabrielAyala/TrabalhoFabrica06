@@ -3,7 +3,7 @@
     <div class="sidebar">
       <SideBar/>
     </div>
-    <div class="content">
+    <div class="content-right">
       <router-view></router-view>
     </div>
   </div>
@@ -19,13 +19,28 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  height: 100vh;
+
+  .sidebar{
+    width: 250px;
+    height: 100vh;
+    background-color: black;
+    float: left;
+  }
+
+  .content-right{
+    width: calc(100% - 250px);
+    height: 100vh;
+    background-color: red;
+    float: left;
+  }
 }
 </style>
