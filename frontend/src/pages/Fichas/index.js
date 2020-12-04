@@ -2,9 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 
+import api from '../../services/api';
 import './styles.css';
 
 function Fichas(){
+
+    function pegandoFichas() {
+        
+    };
+
     return (
         <div className="fichas-container">
             <header>
