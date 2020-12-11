@@ -11,7 +11,7 @@ module.exports = {
     async cadastrar (request, response) {
         const { id_ficha, id_raca_ficha, id_classe_ficha, nomePersonagem, xp, antecedente,
         vida_maxima, id_bonus_proeficiencia, classe_armadura, forca, destreza, constituicao,
-        inteligencia, sabedoria, carisma, id_proeficiencias_ficha} = request.body;
+        inteligencia, sabedoria, carisma, level} = request.body;
 
     await connection('ficha').insert({
         id_ficha,
@@ -29,12 +29,12 @@ module.exports = {
         inteligencia,
         sabedoria,
         carisma,
-        id_proeficiencias_ficha
+        level
     });
 
     return response.json({ id_ficha, id_raca_ficha, id_classe_ficha, nomePersonagem, xp, antecedente,
         vida_maxima, id_bonus_proeficiencia, classe_armadura, forca, destreza, constituicao,
-        inteligencia, sabedoria, carisma, id_proeficiencias_ficha });
+        inteligencia, sabedoria, carisma, level });
     },
 
     async atualizar (request, response) {
@@ -53,7 +53,7 @@ module.exports = {
         const { inteligencia } = request.body;
         const { sabedoria } = request.body;
         const { carisma } = request.body;
-        const { id_proeficiencias_ficha } = request.body;
+        const { level } = request.body;
 
     await connection('ficha').where('id_ficha', id_ficha).update({
         nomePersonagem,

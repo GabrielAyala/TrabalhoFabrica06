@@ -10,13 +10,14 @@ module.exports = {
     },
 
     async cadastrar (request, response) {
-        const { id_classe_feature, nome_classe_feature, descricao_classe_feature, classe_id} = request.body;
+        const { id_classe_feature, nome_classe_feature, descricao_classe_feature, classe_id, level} = request.body;
 
     await connection('classe_feature').insert({
         id_classe_feature,
         nome_classe_feature,
         descricao_classe_feature,
-        classe_id
+        classe_id,
+        level
     });
     
     return response.json({ nome_classe_feature, descricao_classe_feature, classe_id });
@@ -27,10 +28,12 @@ module.exports = {
         const { nome_classe_feature } = request.body;
         const { descricao_classe_feature } = request.body;
         const { classe_id } = request.body;
+        const { level } = request.body;
 
     await connection('classe_Feature').where('id_classe_feature', id_classe_feature).update({
         nome_classe_feature,
-        descricao_classe_feature
+        descricao_classe_feature,
+        level
     });
 
     return response.json({ nome_classe_feature, descricao_classe_feature });

@@ -16,11 +16,10 @@ exports.up = function(knex) {
     table.integer('inteligencia').notNullable();
     table.integer('sabedoria').notNullable();
     table.integer('carisma').notNullable();
-    table.integer('id_proeficiencias_ficha').notNullable();
+    table.integer('level').notNullable();
 
     table.foreign('id_raca_ficha').references('id_raca').inTable('raca');
     table.foreign('id_classe_ficha').references('id_classe').inTable('classe');
-    table.foreign('id_proeficiencias_ficha').references('id_proeficiencias').inTable('proeficiencias');
   });
 };
 
