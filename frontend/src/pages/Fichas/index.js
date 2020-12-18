@@ -3,18 +3,17 @@ import { Link } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 
 import './styles.css';
-import Axios from 'axios';
+import api from '../../services/api';
 
 function Fichas(){
 
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        Axios
+        api
         .get("http://localhost:3333/fichas")
         .then((api) => {
             setData(api.data);
-            console.log(api);
         })
         .catch(() => console.log("error"));
     }, []);
@@ -38,6 +37,9 @@ function Fichas(){
                     
                         <strong>Raça</strong>
                         <p>{data.id_raca_ficha}</p>
+
+                        <strong>Classe</strong>
+                        <p>{data.id_classe_ficha}</p>
 
                         <strong>Xp</strong>
                         <p>{data.xp}</p>
