@@ -18,6 +18,16 @@ function Fichas(){
         .catch(() => console.log("error"));
     }, []);
 
+    async function deletarFicha(id_ficha) {
+        try {
+            await api.delete(`fichas/${id_ficha}`);
+
+            setData(data.filter(data => data.id_ficha !== id_ficha));
+        } catch (error) {
+            alert('Erro ao deletar a ficha, tente novamente');
+        }
+    }
+
     return (
         <div className="fichas-container">
             <header>
@@ -71,7 +81,7 @@ function Fichas(){
                         <strong>Level</strong>
                         <p>{data.level}</p>
                     
-                        <button type="button">
+                        <button onClick={() => deletarFicha(data.id_ficha)} type="button">
                         <FiTrash2 size={20} color=" #a8a8b3" />
                         </button>
                     </li>
